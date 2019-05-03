@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="purchase_order_template" name="Custom Template">
+        <div id="wrap" class="container">
+            <h1>Data displays</h1>
+            <t t-foreach="fields" t-as="field" >
+                <div class="row">
+                    <span t-field="field" />
+                </div>
+            </t>
+        </div>
+    </template>
+</odoo>

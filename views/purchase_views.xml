@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <!-- Display Active Button -->
+    <record id="purchase_order_form_extend" model="ir.ui.view">
+        <field name="name">Purchase Order: Active? field</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_toggle_active" type="object" class="oe_stat_button" icon="fa-archive" attrs="{'invisible': [('state','not in',('cancel','done'))]}" groups="purchase.group_purchase_manager" modifiers="{}" options="{}">
+                    <field name="active" widget="boolean_button" options="{'terminology': 'archive'}" modifiers="{}"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <!-- /Display Active Button -->
+
+    <!-- Display Active checkbox in list view -->
+    <record id="purchase_order_tree_extend" model="ir.ui.view">
+        <field name="name">purchase.order.tree.extend</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="active"/>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-muted">active == False</attribute>
+            </xpath>
+        </field>
+    </record>
+    <!-- Display Active checkbox in list view -->
+
+    <!--Filter-->
+    <record id="view_purchase_order_filter_extend" model="ir.ui.view">
+            <field name="name">request.quotation.select_extend</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='to_approve']" position="after">
+                    <separator/>
+                    <filter name="archive" string="Archived" domain="[('active', '=', False)]"/>
+                </xpath>
+            </field>
+    </record>
+    <!--/Filter-->
+
+
+</odoo>
