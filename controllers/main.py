@@ -2,7 +2,7 @@ from odoo import http
 
 class PurchasePortal(http.Controller):
 
-    @http.route('purchase/archive', type='json', auth='none')
+    @http.route('purchase/archive', type='json', auth='public')
     def archiveController(self, fields):
         print(fields)
         return http.request.render(

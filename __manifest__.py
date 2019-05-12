@@ -7,6 +7,8 @@
     'data' : [
         'security/purchase_security.xml',
         'views/purchase_views.xml',
+        'views/purchase_assets.xml',
+        # 'views/purchase_cron.xml',
         'views/purchase_order_template.xml',
     ],
 }

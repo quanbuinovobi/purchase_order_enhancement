@@ -46,5 +46,17 @@
     </record>
     <!--/Filter-->
 
+    <!--Display widget-->
+    <record id="partner_extend_us_phone" model="ir.ui.view">
+        <field name="name">US Phone</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="attributes">
+                <attribute name="widget" >us_phone</attribute>
+            </field>
+        </field>
+    </record>
+    <!--/Display widget-->
 
 </odoo>
