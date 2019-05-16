@@ -8,8 +8,17 @@
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
-                <button name="action_toggle_active" type="object" class="oe_stat_button" icon="fa-archive" attrs="{'invisible': [('state','not in',('cancel','done'))]}" groups="purchase.group_purchase_manager" modifiers="{}" options="{}">
-                    <field name="active" widget="boolean_button" options="{'terminology': 'archive'}" modifiers="{}"/>
+                <button name="action_toggle_active" type="object"
+                        class="oe_stat_button"
+                        icon="fa-archive"
+                        attrs="{'invisible': [('state','not in',('cancel','done'))]}"
+                        groups="purchase.group_purchase_manager"
+                        modifiers="{}"
+                        options="{}">
+                    <field name="active"
+                           widget="boolean_button"
+                           options="{'terminology': 'archive'}"
+                           modifiers="{}"/>
                 </button>
             </xpath>
         </field>

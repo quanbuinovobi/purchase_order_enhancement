@@ -10,7 +10,5 @@
         <field name="interval_number">1</field>
         <field name="interval_type">minutes</field>
         <field name="numbercall">-1 </field>
-
     </record>
-
 </odoo>
